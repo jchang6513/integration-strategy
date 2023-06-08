@@ -7,9 +7,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.integrationstrategy.entity.IntegralEntity;
 import com.example.integrationstrategy.enums.IntegralType;
-import com.example.integrationstrategy.model.IntegrateReq;
-import com.example.integrationstrategy.model.IntegrateRes;
 
 @Service
 public class IntegralStrategyContext {
@@ -24,9 +23,9 @@ public class IntegralStrategyContext {
     );
   }
 
-  public IntegrateRes executeStrategy(IntegrateReq req) {
-    IntegralStrategy strategy = strategies.get(req.getType());
+  public IntegralEntity executeStrategy(IntegralType type, String formula, double[] range, double interval, double y0) {
+    IntegralStrategy strategy = strategies.get(type);
 
-    return strategy.execute(req.getFormula(), req.getRange(), req.getInterval(), req.getY0());
+    return strategy.execute(formula, range, interval, y0);
   }
 }

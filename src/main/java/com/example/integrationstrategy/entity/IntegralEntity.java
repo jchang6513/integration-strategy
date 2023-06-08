@@ -1,12 +1,12 @@
-package com.example.integrationstrategy.model;
+package com.example.integrationstrategy.entity;
 
 import java.util.ArrayList;
 
 import lombok.Data;
 
 @Data
-public class IntegrateRes {
-  ArrayList<Double> yPrime = new ArrayList<>();
+public class IntegralEntity {
+  ArrayList<Double> yp = new ArrayList<>();
   ArrayList<Double> y = new ArrayList<>();
   ArrayList<Double> x = new ArrayList<>();
 }
